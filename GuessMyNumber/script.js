@@ -4,7 +4,7 @@
 let score = 20;
 
 // CREATE OUR SUPER SECRET NUMBER
-const secretNumber = Math.trunc(Math.random() * 20) + 1;
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 
 // GET CHECK CLASS ELEMENT ADD CLICK EVENT
 document.querySelector('.check').addEventListener('click', function () {
@@ -47,4 +47,26 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.score').textContent = 0;
     }
   }
+});
+
+// RESET THE GAME
+document.querySelector('.again').addEventListener('click', function() {
+
+    // SET SCORE BACK TO 20
+    score = 20;
+    document.querySelector('.score').textContent = score;
+
+    // RESET MESSAGE
+    document.querySelector('.message').textContent = 'Start guessing...';
+
+    // CLEAR PLAYER GUESS
+    document.querySelector('.guess').value = '';
+
+    // NEW SECRET NUMBER
+    secretNumber = Math.trunc(Math.random() * 20) + 1;
+
+    // REVERT WINNING CSS CHANGES
+    document.querySelector('body').style.backgroundColor = '#222';
+    document.querySelector('.number').style.width = '15rem';
+    document.querySelector('.number').textContent = '?';
 });
