@@ -1,11 +1,13 @@
 'use strict';
 
 // SCORES
+const scores = [0, 0];
 let currentScore = 0;
-let player1Score = 0;
-let player2Score = 0;
+let activePlayer = 0;
 
 // SELECT ELEMENTS
+const player0El = document.querySelector('.player--0');
+const player1El = document.querySelector('.player--1');
 const score0El = document.getElementById('score--0');
 const score1El = document.getElementById('score--1');
 const current0El = document.getElementById('current--0');
@@ -32,11 +34,20 @@ btnRoll.addEventListener('click', function () {
 
     // CHECK FOR ROLL OF 1 / SWITPLAYER
     if(dice !== 1) {
-        
+
         // ADD DICE TO CURRENT SCORE
         currentScore += dice;
-        current0El.textContent = currentScore; // CHANGE LATER
+        document.getElementById(`current--${activePlayer}`).textContent = currentScore;
     } else {
-        // SWITCH TO NEXT PLAYER
+
+        // SET CURRENT PLAYER SCORE TO 0 AND SIWTCH PLAYERS
+        document.getElementById(`current--${activePlayer}`).textContent = 0;
+        activePlayer = activePlayer === 0 ? 1 : 0;
+
+        // RESET BACK TO ZERO
+        currentScore = 0;
+
+        player0El.classList.toggle('player--active');
+        player1El.classList.toggle('player--active');
     }
 });
