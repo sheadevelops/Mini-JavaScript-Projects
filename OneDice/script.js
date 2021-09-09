@@ -80,7 +80,7 @@ btnHold.addEventListener('click', function () {
       scores[activePlayer];
 
     // CHECK IF PLAYER SCORE IS >= 100
-    if (scores[activePlayer] >= 20) {
+    if (scores[activePlayer] >= 100) {
       playing = false;
       current0El.textContent = 0;
       current1El.textContent = 0;
