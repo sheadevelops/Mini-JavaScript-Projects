@@ -11,7 +11,7 @@ let ticketPrice = +movieSelect.value;
 // SAVE MOVIE INDEX AND PRICE
 function setMovieData(movieIndex, moviePrice) {
   // localStorage is saved on the client and can be accessed via the developer options Application tab
-  // if a user refreshes the page the localStorage can be recovered and used to populate the page
+  // if a user refreshes the page the localStorage can be recovered and used to repopulate the page data
   localStorage.setItem("selectedMovieIndex", movieIndex);
   localStorage.setItem("selectedMoviePrice", moviePrice);
 }
